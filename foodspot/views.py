@@ -3,11 +3,11 @@ from django.utils.timezone import now
 from django.shortcuts import get_object_or_404, redirect, render
 
 def main(request):
-    pass
+    return render(request,'main.html',{'view_title':"Menu",})
 
 def profile(request):
-    pass
+    return render(request,'profile.html')
 
 def order(request):
-    pass
+    return render(request,'order.html')
 

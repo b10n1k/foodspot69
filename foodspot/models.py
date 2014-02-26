@@ -28,7 +28,8 @@ class Profile(models.Model):
         verbose_name_plural='Profiles'
 
 class Favorites(models.Model):
-    profile=mode
+    #profile=mode
+    pass
 
 class Order(models.Model):
     order_profile=models.ForeignKey(Profile)
