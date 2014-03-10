@@ -2,10 +2,11 @@ from django.contrib.auth.models import User
 from django.utils.timezone import now
 from django.shortcuts import get_object_or_404, redirect, render,render_to_response
 from foodspot.models import Food,Offer
-from django.http import HttpResponse
+from django.http import HttpResponse, StreamingHttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 
+@csrf_exempt
 def main(request):
     
     menu_beer = Food.objects.filter(category=4)
@@ -20,10 +21,8 @@ def main(request):
     menu_coffee = Food.objects.filter(category=9)
     menu_soda = Food.objects.filter(category=5)
     menu_food = Food.objects.filter(category=1)
-    
-    menu_offer = Offer.objects.all()
 
-    
+    menu_offer = Offer.objects.all()
 
     return render(request,'main.html',{'view_title':"Menu",
                                        'menu_crepe':menu_crepe,
@@ -37,7 +36,8 @@ def main(request):
                                        'menu_coffee':menu_coffee,
                                        'menu_soda':menu_soda,
                                        'menu_beer':menu_beer,
-                                       'menu_offer':menu_offer
+                                       'menu_offer':menu_offer,
+                                       
                                    })
     
 def profile(request):
@@ -45,12 +45,21 @@ def profile(request):
 
 @csrf_exempt
 def order(request):
-    getobject=None
-    if request==request.POST:
-        sItem=int(request.POST.get('itemId'))
-        #it=int(sItem['itemId'])
-        getobject=Food.objects.get(id=sItem)
-        
-        #selectedItem=json.dumps(getobject)
-    return render_to_response('main.html',{'objects':getobject})
+    obj={}
+    print "request ajax------------------------"
+    if request.is_ajax():
+        print "inside ajax\/\/\//\/\/\/"
+        sItem=request.GET.get('itemId')
+        print "GET itemId="+sItem
+        if sItem is not None:
+            getobject=Food.objects.get(id=int(sItem))
+            print getobject
+            obj['id']=getobject.id
+            obj['title']=getobject.title
+            print "{}= "+str(obj)
+            return HttpResponse(json.dumps(obj))
+        else:
+            print "ERRRRRRR"
+    
+    return render_to_response("order.html",{'obj':obj})
 

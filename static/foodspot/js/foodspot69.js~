@@ -1,0 +1,10 @@
+$(document).ready( function(){
+    orderllist=[]
+    $(".orderbtn").each(function(){
+	$(this).click(function(){
+	    p=$(this).prop("id");
+	    preventDefault();
+	    alert(p);
+	});
+    });
+});

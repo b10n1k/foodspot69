@@ -1,0 +1,260 @@
+  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                          Κρέπες
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse">
+
+                      <ul class="list-group outer_list" data-toggle="buttons">
+                        {% for item in menu_crepe %}
+                        <li class="list-group-item active">
+                          <span class="badge">{{ item.price }}</span><button>{{ item.title }}</button>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                          Μπύρες
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                      <!--display menu-->
+                      <ul class="list-group outer_list" data-toggle="buttons">
+                        {% for item4 in menu_beer %}
+                        <li class="list-group-item active">
+                          <span class="badge">{{ item4.price }}</span><button>{{ item4.title }}</button>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+
+
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                          Φρέσκα χειροποίητα ζυμαρικά
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse">
+                      <!--display menu-->
+                      <ul class="list-group outer_list" data-toggle="buttons">
+                        {% for item3 in menu_spaggetti %}
+                        <li class="list-group-item active">
+                          <span class="badge">{{ item3.price }}</span><button>{{ item3.title }}</button>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+
+
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                          Burgers
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse">
+                      <!--display menu-->
+                      <ul class="list-group outer_list" data-toggle="buttons">
+                        {% for item5 in menu_burgers %}
+                        <li class="list-group-item active">
+                          <span class="badge">{{ item5.price }}</span><button>{{ item5.title }}</button>
+                        </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+
+
+	    
+	    
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+			  Hot Dog
+			</a>
+		      </h4>
+		    </div>
+		    <div id="collapseFive" class="panel-collapse collapse">
+		      <!--display menu-->
+		      <ul class="list-group outer_list" data-toggle="buttons">
+			{% for item in menu_hotdog %}
+			<li class="list-group-item active">
+			  <span class="badge">{{ item.price }}</span><button>{{ item.title }}</button>
+			</li>
+			{% endfor %}
+		      </ul>
+		    </div>
+		  </div>
+
+
+
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+			  Σαλάτες
+			</a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse">
+		      <!--display menu-->
+		      <ul class="list-group outer_list" data-toggle="buttons">
+			{% for item in menu_salads %}
+			<li class="list-group-item active">
+		    <span class="badge">{{ item.price }}</span><button>{{ item.title }}</button>
+			</li>
+			{% endfor %}
+		      </ul>
+		    </div>
+		  </div>
+	    
+
+
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+			  Τοστ
+			</a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse">
+		      <!--display menu-->
+		      <ul class="list-group outer_list" data-toggle="buttons">
+			{% for item in menu_toast %}
+			<li class="list-group-item active">
+			  <span class="badge">{{ item.price }}</span><button>{{ item.title }}</button>
+			</li>
+			{% endfor %}
+		      </ul>
+		    </div>
+		  </div>
+	    
+	    
+		  
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+			  Επιδόρπια
+			</a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse">
+		      <!--display menu-->
+		      <ul class="list-group outer_list" data-toggle="buttons">
+			{% for item in menu_dessert %}
+			<li class="list-group-item active">
+			  <span class="badge">{{ item.price }}</span><button>{{ item.title }}</button>
+			</li>
+			{% endfor %}
+		      </ul>
+		    </div>
+		  </div>
+	    
+		
+
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+			  Καφέδες-Επιδορπια
+			</a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse">
+		      <!--display menu-->
+		      <ul class="list-group outer_list" data-toggle="buttons">
+			{% for item in menu_coffee %}
+			<li class="list-group-item active">
+			  <span class="badge">{{ item.price }}</span><button>{{ item.title }}</button>
+			</li>
+			{% endfor %}
+		      </ul>
+		    </div>
+		  </div>
+    
+
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+			  Αναψυκτικά
+			</a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse">
+		      <!--display menu-->
+		      <ul class="list-group outer_list" data-toggle="buttons">
+			{% for item in menu_soda %}
+			<li class="list-group-item active">
+		    <span class="badge">{{ item.price }}</span><button>{{ item.title }}</button>
+			</li>
+			{% endfor %}
+		      </ul>
+		    </div>
+		  </div>
+	    
+	    
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+			<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+			  Μπύρες-Κρασιά
+			</a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse">
+		      <!--display menu-->
+		      <ul class="list-group outer_list" data-toggle="buttons">
+			{% for item2 in menu_beer %}
+			<li class="list-group-item active">
+			  <span class="badge">{{ item2.price }}</span><button>{{ item2.title }}</button>
+			</li>
+			{% endfor %}
+		      </ul>
+		      
+		    </div>
+		  </div>
+
+
+
+---___--__--__-
+	<!--div class="row">
+	  <div class="horbar">
+	    <div class="mainbar">
+	      <ul class="pager">
+		<li class="previous">
+		  <a href="#">&larr; Back</a><!--category
+		</li>
+		<li class="next">
+		  <a href="#">Next &rarr;</a><!--category 
+		</li>
+	      </ul>
+	    </div>
+	    
+	    <div class="horizontal">
+	      <div class="list_scroller">
+		<!--display menu-->
+
+

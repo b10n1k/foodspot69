@@ -1,0 +1,332 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block menu_content %}
+<div class="container">
+  <div class="row-fluid">
+    
+    <div class="col-sm-8">
+      <div class="panel-group" id="accordion">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseCrepe">
+		Crepe
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseCrepe" class="panel-collapse collapse in">
+	    <div class="panel-body">
+	      <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_crepe %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.price }}</span><button  id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>	
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseClub">
+		Club Sandiwich
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseClub" class="panel-collapse collapse">
+	    <div class="panel-body">
+	      <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_club %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseSpaghetti">
+		Φρέσκα χειροποίητα ζυμαρικά
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseSpaghetti" class="panel-collapse collapse">
+	    <div class="panel-body">
+              <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_spaghetti %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+	      <a data-toggle="collapse" data-parent="#accordion" href="#collapseBurger">
+		Burgers
+	      </a>
+	    </h4>
+	  </div>
+	  <div id="collapseBurger" class="panel-collapse collapse">
+	    <div class="panel-body">
+	      <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_burgers %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>	
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseHotdog">
+		Hot Dog
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseHotdog" class="panel-collapse collapse">
+	    <div class="panel-body">
+	      <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_hotdog %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseSalad">
+		Σαλάτες φρεσκοκομμένες
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseSalad" class="panel-collapse collapse">
+	    <div class="panel-body">
+              <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_salads %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseToast">
+		Τοστ
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseToast" class="panel-collapse collapse">
+	    <div class="panel-body">
+	      <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_toast %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>	
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseIcecream">
+		Παγωτά
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseIcecream" class="panel-collapse collapse">
+	    <div class="panel-body">
+	      <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_icecream %}
+	  <li class="list-group-item active">
+	    <span class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+	  </li>
+	  {% endfor %}
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseCafeplus">
+		Συνοδευτικά καφέ
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseCafeplus" class="panel-collapse collapse">
+	    <div class="panel-body">
+              <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_spaggetti %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseDessert">
+		Επιδόρπια
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseDessert" class="panel-collapse collapse">
+	    <div class="panel-body">
+	      <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_dessert %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>	
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseCoffee">
+		Καφέ-ροφήματα
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseCoffee" class="panel-collapse collapse">
+	    <div class="panel-body">
+	      <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_coffee %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseSoda">
+		Αναψυκτικά
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseSoda" class="panel-collapse collapse">
+	    <div class="panel-body">
+              <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_soda %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseBeer">
+		Μπύρες-Κρασιά
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseBeer" class="panel-collapse collapse">
+	    <div class="panel-body">
+              <ul class="list-group outer_list" data-toggle="buttons">
+		{% for item in menu_beer %}
+		<li class="list-group-item active">
+		  <span  class="badge">{{ item.price }}</span><button id="{{ item.id }}" class="orderbtn">{{ item.title }}</button>
+		</li>
+		{% endfor %}
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+		Offers
+              </a>
+	    </h4>
+	  </div>
+	  <div id="collapseTwo" class="panel-collapse collapse">
+	    <div class="panel-body">
+	      <ul class="list-group outer_list">
+		{% for item in menu_offer %}
+		<li class="list-group-item active">
+		  <span class="badge">{{ item.foodspot_offer_price }}</span><span>{{ item.foodspot_offer }}</span>
+		</li>
+		{% endfor %}
+	      </ul>  
+	    </div>
+	  </div>
+	</div>
+	
+      </div>
+    </div>
+    
+    <!-- order panel -->
+    
+    <div class="col-md-4" data-spy="affix" data-offset="0">
+      <div class="outer_order">
+	
+	<h2><span class="label label-info"><u>Παραγγελια</u></span></h2>
+	<br \>
+	<div id="menu_display">
+	  <!-- {{ csrf_token }} -->
+	  <div id="selected" class="selected">
+	    
+	    
+	    
+	    
+	  </div >
+	</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- end row -->
+</div>
+<!-- end container -->
+</div> 
+{% endblock %}
+

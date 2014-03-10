@@ -1,0 +1,40 @@
+div.horizontal {
+    position: relative;
+    width: 60%;
+    overflow: auto;
+    overflow-y: hidden;
+    background-color: #ddd;
+    display: block;
+    border-radius: 20px;
+    border: 35px solid #eee;
+    white-space: nowrap;
+}
+
+.list_scroller {    
+    display:inline-block;
+    overflow:auto;
+    overflow-y:hidden; 
+    width:auto;
+}
+
+.outer_list {
+    height:auto;
+    width:100%;
+    display:inline-block;
+}
+
+.outer_order{
+    position:fixed;
+    border:solid #e0e0e0;
+    background-clip:padding-box;
+    border-radius:8px;
+    height:250px;
+    width:100%;
+    align-text:center;
+}
+
+.affix{
+    position:fixed;
+    width:20% !important;
+    right:15%;
+}
