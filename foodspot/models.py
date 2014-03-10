@@ -1,14 +1,6 @@
 from django.db import models
 import datetime
 
-class Food(models.Model):
-    pass
-
-class Menu(models.Model):
-    pass
-
-class Choise(models.Model):
-    choise=models.ForeignKey(Menu)
 
 class Profile(models.Model):
     first_name=models.CharField(max_length=30)
@@ -31,18 +23,6 @@ class Favorites(models.Model):
     #profile=mode
     pass
 
-class Order(models.Model):
-    order_profile=models.ForeignKey(Profile)
-    order_choises=models.ForeignKey(Choise) #
-    order_date=models.DateTimeField(auto_now_add=True)
-    order_status=models.BooleanField(default=False)
-
-    class Meta:
-        ordering=['order_date']
-
-    def __unicode__(self):
-        pass
-
 class Category(models.Model):
     CATEG_LIST={
         ('Crepe','Crepe'),
@@ -62,7 +42,7 @@ class Category(models.Model):
         
     }
 
-    category_title=models.CharField(max_length=3,choices=CATEG_LIST,default='Crepe',unique=True)
+    category_title=models.CharField(max_length=35,choices=CATEG_LIST,default='Crepe',unique=True)
 
     def __unicode__(self):
         return self.category_title
@@ -74,7 +54,7 @@ class Category(models.Model):
 class SubCategory(models.Model):
     category=models.ForeignKey(Category)
     sub_title=models.CharField(max_length=100)
-
+    
     def __unicode__(self):
         return self.sub_title
 
@@ -82,33 +62,62 @@ class SubCategory(models.Model):
         ordering=['sub_title']
         verbose_name_plural='Sub Categories'
 
+class Food(models.Model):
+    title=models.CharField(max_length=200)
+    price=models.DecimalField(max_digits=4,decimal_places=2)
+    category=models.ForeignKey(Category)
+    description=models.TextField(blank=True)
+    
+    def __unicode__(self):
+        return "%d - %s " % (self.price,self.title)
+        
+    class Meta:
+        ordering=['category']
+
+
 class Topping(models.Model):
     topping_name=models.CharField(max_length=30)
     topping_description=models.TextField()
-    topping_prize=models.DecimalField(max_digits=4,decimal_places=2)
+    topping_price=models.DecimalField(max_digits=4,decimal_places=2)
     
     def __unicode__(self):
         return "%s" % self.topping_name
-
-class Crepe(models.Model):
-    crepe_comp=models.ForeignKey(Topping)
-    crepe_prize=models.DecimalField(max_digits=4,decimal_places=2)
-    crepe_category=models.ForeignKey(Category)
-    crepe_description=models.TextField(blank=True)
-
-    def __unicode__(self):
-        return "%d - %s " % (self.crepe_prize,self.crepe_comp)
-
-    class Meta:
-        ordering=['crepe_comp']
-
+   
 class Offer(models.Model):
-    foodspot_offer=models.ForeignKey(Topping)
+    foodspot_offer=models.CharField(max_length=200)
+    foodspot_offer_price=models.DecimalField(max_digits=4,decimal_places=2)
+    foodspot_offer_description=models.CharField(max_length=100, null=True, blank=True)
 
+    def get_offer(self):
+        return (foodspot_offer, foodspot_offer_price)
+        
     def __unicode__(self):
         return self.foodspot_offer
+
+    class Meta:
+        verbose_name_plural='Offers'
 
 class Photo(models.Model):
     #caption=models.CharField(max_length=200)
     #image=models.ImageField(upload_to='images')
     pass
+
+class Menu(models.Model):
+    pass
+
+
+class Choise(models.Model):
+    choise=models.ForeignKey(Menu)
+
+
+class Order(models.Model):
+    order_profile=models.ForeignKey(Profile)
+    order_choises=models.ForeignKey(Choise)
+    order_date=models.DateTimeField(auto_now_add=True)
+    order_status=models.BooleanField(default=False)
+    
+    class Meta:
+        ordering=['order_date']
+
+    def __unicode__(self):
+        pass
