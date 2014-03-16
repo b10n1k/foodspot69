@@ -8,7 +8,7 @@ import json
 
 @csrf_exempt
 def main(request):
-    
+
     menu_beer = Food.objects.filter(category=4)
     menu_crepe = Food.objects.filter(category=2)
     menu_club = Food.objects.filter(category=1)
@@ -52,9 +52,9 @@ def main(request):
                                        'menu_soda':menu_soda,
                                        'menu_beer':menu_beer,
                                        'menu_offer':menu_offer,
-                                       
+
                                    })
-    
+
 def profile(request):
     return render(request,'profile.html')
 
@@ -76,4 +76,3 @@ def order(request):
         else:
             print "ER"
     return render_to_response("order.html",{'obj':obj})
-
