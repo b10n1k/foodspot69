@@ -8,9 +8,9 @@ $(document).ready( function(){
 		     //'csrfmiddlewaretoken': $("{% csrf_token %}") 
 		     },
 		success: function(data){
-                    $('#selected').html("foo"+data.title);
+                    $('#selected').html(data);
                 }
-		//dataType:"json"
+		
 	    });
 	    	
     });

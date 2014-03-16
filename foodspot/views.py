@@ -23,6 +23,21 @@ def main(request):
     menu_food = Food.objects.filter(category=1)
 
     menu_offer = Offer.objects.all()
+    obj={}
+    print "request ajax------------------------"
+    if request.is_ajax():
+        print "inside ajax\/\/\//\/\/\/"
+        sItem=request.GET.get('itemId')
+        print "GET itemId="+sItem
+        if sItem is not None:
+            getobject=Food.objects.get(id=int(sItem))
+            print getobject
+            obj['id']=getobject.id
+            obj['title']=getobject.title
+            print "{}= "+str(obj)
+            return HttpResponse(json.dumps(obj), content_type="application/json")
+        else:
+            print "ERRRRRRR"
 
     return render(request,'main.html',{'view_title':"Menu",
                                        'menu_crepe':menu_crepe,
@@ -47,19 +62,18 @@ def profile(request):
 def order(request):
     obj={}
     print "request ajax------------------------"
-    if request.is_ajax():
-        print "inside ajax\/\/\//\/\/\/"
+    if request.GET:
+        print "POST"
         sItem=request.GET.get('itemId')
-        print "GET itemId="+sItem
+        print "GET2 itemId="+sItem
         if sItem is not None:
             getobject=Food.objects.get(id=int(sItem))
             print getobject
             obj['id']=getobject.id
             obj['title']=getobject.title
-            print "{}= "+str(obj)
-            #return render_to_response('order.html',{"obj":obj})
+            print "post2= "+str(obj)
+            return render(request,'order.html',{"obj":obj})
         else:
-            print "ERRRRRRR"
-    print "2{}= "+str(obj)
-    return HttpResponse(json.dumps(obj), content_type="application/json")
+            print "ER"
+    return render_to_response("order.html",{'obj':obj})
 
