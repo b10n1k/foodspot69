@@ -4,20 +4,16 @@ $(document).ready( function(){
 	    $.ajax({
 		type:"GET",
 		url:"order/",
-		data:{'itemId':p
+		data:{"itemId":p
 		     //'csrfmiddlewaretoken': $("{% csrf_token %}") 
 		     },
-		success: displayItem,
-		dataType:'json'
+		success: function(data){
+                    $('#selected').html("foo"+data.title);
+                }
+		//dataType:"json"
 	    });
-	    //preventDefault();
-	
+	    	
     });
-
-    function displayItem(data){
-	  
-	$('#selected').html(JSON.strigify(data));
-    }
 });
 
 

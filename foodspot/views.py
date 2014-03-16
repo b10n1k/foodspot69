@@ -57,9 +57,9 @@ def order(request):
             obj['id']=getobject.id
             obj['title']=getobject.title
             print "{}= "+str(obj)
-            return HttpResponse(json.dumps(obj))
+            #return render_to_response('order.html',{"obj":obj})
         else:
             print "ERRRRRRR"
-    
-    return render_to_response("order.html",{'obj':obj})
+    print "2{}= "+str(obj)
+    return HttpResponse(json.dumps(obj), content_type="application/json")
 
