@@ -10,8 +10,8 @@ $(document).ready( function(){
             success: function(data){
                 $('#selected').html("data.title");
             }
-            
+
         });
-        
+
     });
 });
